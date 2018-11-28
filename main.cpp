@@ -1,3 +1,7 @@
+//UNIVERSIDAD DE LAS FUERZAS ARMADAS-ESPE
+//AUTORES:Cofre,Molina,Quimbita,Parra,Pupiales,Vizuete,Romero,Moreno,Castro,Yandun,Casanova,Yepez,Avila,Guevara,Altamirano,Salazar
+//Fecha de Creacion:23/11/2018						Feha de Modificacion:28/11/2018
+//Problema:Realizar un programa con listas simples(insertar inicio, insertar fin, eliminar, buscar, mostrar)
 #include <iostream>
 #include "Lista.h"
 
