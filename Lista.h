@@ -17,6 +17,7 @@ class Lista{
 		void insertarInicio();
 		void mostrar();
 		int leerDato(char *);
+		bool buscarNodo(int dato);
 };
 
 Lista::Lista(){
@@ -64,4 +65,18 @@ void Lista::mostrar(){
 		cout << "Lista vacia" << endl;
 	}
 		
+}
+
+bool Lista::buscarNodo(int dato){
+	Nodo *aux = new Nodo();
+	aux = primero;
+	if(primero != NULL){
+		while(aux != NULL){
+			if(aux->getDato() == dato)
+				return true;			
+			aux = aux->getSig();
+		}
+		return false;	
+	}else
+		return false;
 }
