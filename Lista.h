@@ -19,6 +19,8 @@ class Lista{
 		int leerDato(char *);
 		bool buscarNodo(int dato);
 		void insertarFin();
+		bool unico(); //Daniel Avila
+		void eliminarNodo(); // Daniel Avila
 };
 
 Lista::Lista(){
@@ -30,6 +32,21 @@ bool Lista::vacio(){
 		return true;
 	else
 		return false;
+}
+
+bool Lista::unico(){
+	Nodo *aux = new Nodo();
+	int cont = 0;
+	aux = primero;
+	while(aux != NULL){
+		cont++;
+		aux = aux->getSig();
+	}
+	if(cont == 1){
+		return true;
+	}else{
+		return false;
+	}	
 }
 
 int Lista::leerDato(char *msg){
@@ -117,4 +134,18 @@ bool Lista::buscarNodo(int dato){
 		return false;	
 	}else
 		return false;
+}
+
+void Lista::eliminarNodo(){
+	Nodo *aux = new Nodo();
+	if(!vacio()){
+		if(unico()){
+			primero = NULL;
+		}else{
+			aux = primero;
+			primero = aux->getSig();
+			aux->setSig(NULL);
+		}
+	}
+	
 }

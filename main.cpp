@@ -16,5 +16,8 @@ int main(){
 		cin >> op;
 	} while (op != 1);
 	lista->mostrar();
+	lista->eliminarNodo();
+	cout<<"Eliminado el primer Nodo"<<endl;
+	lista->mostrar();
 	return 0;
 }
