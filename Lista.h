@@ -146,6 +146,6 @@ void Lista::eliminarNodo(){
 			primero = aux->getSig();
 			aux->setSig(NULL);
 		}
-	}
-	
+	}	
 }
+//PRUEBA JONATHAN COMMIT
