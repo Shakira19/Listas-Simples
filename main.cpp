@@ -11,7 +11,7 @@ int main(){
 	int op;
 	Lista *lista = new Lista();
 	do{
-		lista->insertarInicio();
+		lista->insertarFin();
 		cout << "Ingrese 1 para salir" << endl;
 		cin >> op;
 	} while (op != 1);

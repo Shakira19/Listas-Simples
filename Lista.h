@@ -10,7 +10,7 @@
 using namespace std;
 class Lista{
 	private:
-		Nodo *primero;
+		Nodo *primero,*ultimo;
 	public:
 		Lista();
 		bool vacio();
@@ -18,6 +18,7 @@ class Lista{
 		void mostrar();
 		int leerDato(char *);
 		bool buscarNodo(int dato);
+		void insertarFin();
 };
 
 Lista::Lista(){
@@ -51,6 +52,43 @@ void Lista::insertarInicio(){
 		Nodo *aux2 = new Nodo(dato, aux->getSig());
 		primero = aux;
 	}
+}
+void Lista::insertarFin(){
+	int dato;
+	char *msg = (char*) "Ingrese el dato del nodo: ";
+	dato = leerDato(msg);
+	
+		
+	//SEGUNDA VERSION(Optima, se ahorra un nodo menos comparado a la primera version)
+	//------------------------------------------------------------------------------
+	if(vacio()){
+		primero = new Nodo(dato, NULL);
+		ultimo=primero;
+	
+	}
+	else{
+		Nodo *aux=new Nodo();
+		aux->setSig(NULL);
+		ultimo->setSig(aux);
+		aux->setDato(dato);
+		ultimo=aux;
+	}
+	//------------------------------------------------------------------
+	//PRIMERA VERSION(se requiere de un nodo adicional)
+	/*else{
+		Nodo *aux1 = new Nodo();
+		aux1=primero;
+		Nodo *aux2=new Nodo();
+		
+		while((aux1)!=NULL){
+			aux2=aux1;
+			aux1=aux1->getSig();
+		}
+		Nodo *aux3=new Nodo(dato,NULL);
+		aux2->setSig(aux3);
+		
+	}*/
+	//--------------------------------------------------------------------
 }
 
 void Lista::mostrar(){
