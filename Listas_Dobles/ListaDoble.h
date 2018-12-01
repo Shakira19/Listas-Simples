@@ -50,8 +50,19 @@ void ListaDoble::insertarInicio(){
 void ListaDoble::mostrar(){
 	Nodo * aux = new Nodo();
 	aux = primero;
-	while(aux != NULL){
-		cout << "dato: " << aux->getDato() << endl;
-		aux = aux->getSig();
-	}
+	if(primero != NULL){
+		cout<<"Lista:";
+		do{
+			cout<<primero->getDato()<<"->";
+			primero = primero->getSig();
+			}while(primero != NULL);
+			cout<< "NULL" <<endl;
+	}else
+	cout<<"NULL"<<endl;
 }
+
+	
+
+	
+
+
