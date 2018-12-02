@@ -9,7 +9,7 @@ class ListaDoble{
 		ListaDoble();
 		bool vacio();
 		void insertarInicio();
-		void buscar();
+		bool buscar(int);
 		void mostrar();
 		void eliminar();
 		int leerDato(char *);
@@ -47,15 +47,27 @@ void ListaDoble::insertarInicio(){
 	}
 }
 
+bool ListaDoble::buscar(int dato){
+	Nodo *aux = new Nodo();
+	aux=primero;
+	while(aux!=NULL){
+		if(aux->getDato()==dato){
+			return true;
+		}
+		aux=aux->getSig();
+	}
+	return false;
+}
+
 void ListaDoble::mostrar(){
 	Nodo * aux = new Nodo();
 	aux = primero;
-	if(primero != NULL){
+	if(aux != NULL){
 		cout<<"Lista:";
 		do{
-			cout<<primero->getDato()<<"->";
-			primero = primero->getSig();
-			}while(primero != NULL);
+			cout<<aux->getDato()<<"->";
+			aux = aux->getSig();
+			}while(aux != NULL);
 			cout<< "NULL" <<endl;
 	}else
 	cout<<"NULL"<<endl;
