@@ -9,6 +9,7 @@ class ListaDoble{
 		ListaDoble();
 		bool vacio();
 		void insertarInicio();
+		void insertarFinal();
 		void buscar();
 		void mostrar();
 		void eliminar();
@@ -40,9 +41,24 @@ void ListaDoble::insertarInicio(){
 	if(vacio()){
 		Nodo * aux = new Nodo(NULL,dato,NULL);
 		primero = aux;
+		ultimo = aux;
+	}else{
+		Nodo * aux = new Nodo(NULL,dato,ultimo);
+		ultimo->setSig(aux);
+		ultimo = aux;
+	}
+}
+
+void ListaDoble::insertarFinal(){
+	int dato;
+	dato = leerDato((char *)"Ingrese un dato: ");
+	if(vacio()){
+		Nodo * aux = new Nodo(NULL,dato,NULL);
+		ultimo = aux;
+		primero = aux;
 	}else{
 		Nodo * aux = new Nodo(primero,dato,NULL);
-		primero->setanterior(aux);
+		primero->setSig(aux);
 		primero = aux;
 	}
 }
