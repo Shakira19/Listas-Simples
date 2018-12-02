@@ -9,12 +9,11 @@ class ListaDoble{
 		ListaDoble();
 		bool vacio();
 		void insertarInicio();
-<<<<<<< HEAD
 		bool buscar(int);
-=======
 		void insertarFinal();
+		void insertarPosicion();
+		int tamanioLista();
 		void buscar();
->>>>>>> d9ef363d78639f61e610ce1a3d449205374d9632
 		void mostrar();
 		void eliminar();
 		int leerDato(char *);
@@ -68,6 +67,48 @@ void ListaDoble::insertarFinal(){
 	}
 }
 
+int ListaDoble::tamanioLista(){
+	int cont = 0;
+	Nodo *aux = new Nodo();
+	aux = primero;
+	while(aux != NULL){
+		cont++;
+		aux = aux->getSig();
+	}
+	return cont;
+}
+
+void ListaDoble::insertarPosicion(){
+	int dato, pos;
+	pos = leerDato((char *)"Ingrese una posicion: ");
+	if(vacio()){
+		Nodo *aux = new Nodo(NULL,dato,NULL);
+		primero = aux;
+		ultimo = aux;
+	}else{
+		if(pos == 1){
+			insertarInicio();
+		}else if(pos == (tamanioLista() + 1)){
+			insertarFinal();
+		}else if(pos > 1 && pos < (tamanioLista() + 1)){
+			dato = leerDato((char *)"Ingrese un dato: ");
+			Nodo *temp = new Nodo(NULL,dato,NULL);
+			Nodo *aux = new Nodo();
+			aux = primero;
+			for(int i=1; i<pos;i++){
+				aux = aux->getSig();
+			}
+			temp->setSig(aux->getSig());
+			temp->setanterior(aux);
+			aux->setanterior(temp);
+			aux->setSig(temp);
+		}
+		else{
+			cout<<"Error, posicion invalida"<<endl;
+		}
+	}
+}
+
 bool ListaDoble::buscar(int dato){
 	Nodo *aux = new Nodo();
 	aux=primero;
@@ -93,9 +134,3 @@ void ListaDoble::mostrar(){
 	}else
 	cout<<"NULL"<<endl;
 }
-
-	
-
-	
-
-
