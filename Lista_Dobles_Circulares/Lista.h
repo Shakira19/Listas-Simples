@@ -6,8 +6,7 @@ using namespace std;
 class Lista{
 	private:
 		Nodo *primero;
-		Nodo *ultimo;
-		
+		Nodo *ultimo;	
 	public:
 		Lista();
 		//bool vacio();
@@ -16,7 +15,8 @@ class Lista{
 		void insertarEntre();
 		void insertarFin();
 		void buscar();
-		void eliminar();	
+		void eliminarInicio();
+		void eliminarFin();
 		void mostrar();
 };
 
@@ -42,14 +42,11 @@ int Lista::leerDato(char *msg){
 }
 */
 
-
-
 void Lista::insertarCola(){
 	int dato;
-	Nodo *nuevo = new Nodo(dato,NULL,NULL);
-	
 	cout<<"Ingrese un valor: ";
 	cin>>dato;
+	Nodo *nuevo = new Nodo(dato,NULL,NULL);
 	if(primero==NULL&&ultimo==NULL){
 		primero=nuevo;
 		ultimo=nuevo;
@@ -57,36 +54,40 @@ void Lista::insertarCola(){
 		primero->setAnterior(ultimo);
 	}else{
 		ultimo->setSiguiente(nuevo);
-		nuevo->setAnterior(primero);
+		nuevo->setAnterior(ultimo);
 		nuevo->setSiguiente(primero);
 		primero->setAnterior(nuevo);
-		ultimo=nuevo;
-		
+		ultimo=nuevo;	
 	}
-	/*
-	if(vacio()){
-		primero = new Nodo(dato,NULL);
-	}else{
-		Nodo *aux = new Nodo();
-		aux->setDato(dato);
-		aux->setSig(primero);
-		Nodo *aux2 = new Nodo(dato, aux->getSig());
-		primero =aux;
-	}*/
-
 }
 
 void Lista::mostrar(){
-	Nodo *aux = new Nodo(0,NULL,NULL);
+	Nodo *aux = new Nodo();
 	aux=primero;
-	if(primero==NULL){
-		while(aux != NULL){
+	if(primero!=NULL){
+		do{
 			cout << "Dato: " << aux->getDato() << endl;
 			aux = aux->getSiguiente();
-		}
+		} while(aux != primero);
 	} else {
 		cout << "Lista vacia" << endl;
 	}
 }
 
+void Lista::eliminarInicio(){
+	Nodo * aux = new Nodo();
+	aux = primero;
+	primero->~Nodo();
+	primero = aux->getSiguiente();
+	primero->setAnterior(aux->getAnterior());
+	ultimo->setSiguiente(primero);
+}
 
+void Lista::eliminarFin(){
+	Nodo * aux = new Nodo();
+	aux = ultimo;
+	ultimo->~Nodo();
+	ultimo = aux->getAnterior();
+	ultimo->setSiguiente(aux->getSiguiente());
+	primero->setAnterior(ultimo);
+}

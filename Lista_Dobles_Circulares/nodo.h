@@ -4,14 +4,16 @@ class Nodo{
 		Nodo *siguiente;
 		Nodo *anterior;
 	public:	
+	Nodo(){
+		
+	}
 	Nodo(int _dato, Nodo *_sig,Nodo *_ant){
 		dato= _dato;
 		siguiente = _sig;
 		anterior = _ant;
 	}
 	~Nodo(){
-	}
-	
+	}	
 	int getDato(){
 		return dato;
 	}
@@ -30,6 +32,4 @@ class Nodo{
 	void setAnterior(Nodo *_ant){
 		anterior = _ant;
 	}
-	
-	
 };
