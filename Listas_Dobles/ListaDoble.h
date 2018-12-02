@@ -4,7 +4,7 @@ using namespace std;
 
 class ListaDoble{
 	private:
-		Nodo *primero;
+		Nodo *primero, *ultimo;
 	public:
 		ListaDoble();
 		bool vacio();
@@ -18,6 +18,7 @@ class ListaDoble{
 
 ListaDoble::ListaDoble(){
 	primero = NULL;
+	ultimo = NULL;
 };
 
 int ListaDoble::leerDato(char *msg){
@@ -58,7 +59,7 @@ void ListaDoble::insertarFinal(){
 		primero = aux;
 	}else{
 		Nodo * aux = new Nodo(primero,dato,NULL);
-		primero->setSig(aux);
+		primero->setanterior(aux);
 		primero = aux;
 	}
 }
