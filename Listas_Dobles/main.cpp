@@ -8,7 +8,6 @@ int main(){
 		cout << "Ingrese 1 para salir" << endl;
 		cin >> op;
 	} while (op != 1);
-	listaDoble->insertarPosicion();
 	listaDoble->mostrar();
 	return 0;
 }
