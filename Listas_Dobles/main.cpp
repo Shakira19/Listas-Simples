@@ -29,9 +29,10 @@ int main(){
 				system("pause");
 				break;
 			}
-			case 3:{
+			case 3:{				
 				cout<<endl;
-
+				listaDoble->eliminar();
+				system("Pause");
 				break;
 			}
 			case 4:{

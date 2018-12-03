@@ -15,7 +15,7 @@ class ListaDoble{
 		int tamanioLista();
 		void buscar();
 		void mostrar();
-		void eliminar();
+		void eliminar(); //ELimina al inicio, final o entre :)
 		int leerDato(char *);
 };
 
@@ -62,7 +62,7 @@ void ListaDoble::insertarFinal(){
 		primero = aux;
 	}else{
 		Nodo * aux = new Nodo(primero,dato,NULL);
-		primero->setanterior(aux);
+		primero->setAnterior(aux);
 		primero = aux;
 	}
 }
@@ -99,8 +99,8 @@ void ListaDoble::insertarPosicion(){
 				aux = aux->getSig();
 			}
 			temp->setSig(aux->getSig());
-			temp->setanterior(aux);
-			aux->setanterior(temp);
+			temp->setAnterior(aux);
+			aux->setAnterior(temp);
 			aux->setSig(temp);
 		}
 		else{
@@ -125,7 +125,7 @@ void ListaDoble::mostrar(){
 	Nodo * aux = new Nodo();
 	aux = primero;
 	if(aux != NULL){
-		cout<<"Lista:";
+		cout<<"Lista:\n";
 		do{
 			cout<<aux->getDato()<<"->";
 			aux = aux->getSig();
@@ -134,3 +134,48 @@ void ListaDoble::mostrar(){
 	}else
 	cout<<"NULL"<<endl;
 }
+void ListaDoble::eliminar(){ 
+	Nodo *actual = new Nodo();
+	actual = primero;
+	Nodo *anterior = new Nodo();
+	anterior = NULL;
+	bool encontrado=false;
+	int nodoBuscado = 0;
+	cout<<"Ingrese el dato que desea eliminar: "; cin>>nodoBuscado;
+	if(primero != NULL){
+		while(actual != NULL && encontrado != true){
+			
+			if(actual->getDato() == nodoBuscado){
+				
+				if(actual == primero){ //elimina al inicio
+					primero = primero->getSig();
+					primero->setAnterior(NULL);
+				}else if(actual == ultimo){ //elimina al final
+					anterior->setSig(NULL) ;
+					ultimo = anterior;
+				}else{ //elimina entre
+					anterior->setSig(actual->getSig())  ;
+					actual->getSig() == anterior;
+				}
+				cout<<" * DATO "<< nodoBuscado <<" ELIMINADO *"<<endl;
+				encontrado = true;
+			}
+			anterior = actual;
+			actual = actual->getSig();
+		}
+		if(!encontrado){
+			cout<<"\nDato no encontrado"<<endl;
+		}
+	}else{
+		cout<<"\nLa Lista esta vacia"<<endl;
+	}
+}
+
+
+
+
+
+
+
+
+

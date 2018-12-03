@@ -8,10 +8,10 @@ class Nodo{
 		Nodo(Nodo *,int,Nodo *);
 		void setSig(Nodo *);
 		void setDato(int);
-		void setanterior(Nodo *);
+		void setAnterior(Nodo *);
 		Nodo * getSig();
 		int getDato();
-		Nodo * getanterior();
+		Nodo * getAnterior();
 		~Nodo();
 };
 
@@ -26,7 +26,7 @@ Nodo::Nodo(Nodo *sig,int d,Nodo *ult){
 void Nodo::setSig(Nodo *sig){
 	siguiente=sig;
 }
-void Nodo::setanterior(Nodo *ult){
+void Nodo::setAnterior(Nodo *ult){
 	anterior=ult;
 }
 void Nodo::setDato(int d){
@@ -35,7 +35,7 @@ void Nodo::setDato(int d){
 Nodo * Nodo::getSig(){
 	return siguiente;
 }
-Nodo * Nodo::getanterior(){
+Nodo * Nodo::getAnterior(){
 	return anterior;
 }
 int Nodo::getDato(){
