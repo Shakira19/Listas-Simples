@@ -10,12 +10,14 @@ int main(){
 	do{
 		system("cls");
 		cout<<"Listas Dobles Circulares"<<endl;
-		cout<<"1. Agregar"<<endl;
-		cout<<"2. Buscar"<<endl;
-		cout<<"3. Eliminar Inicio"<<endl;
-		cout<<"4. Eliminar Medio"<<endl;
-		cout<<"5. Eliminar Fin"<<endl;
-		cout<<"6. Imprimir"<<endl;
+		cout<<"1. Agregar Cola"<<endl;
+		cout<<"2. Agregar Inicio"<<endl;
+		cout<<"3. Agregar Entre"<<endl;
+		cout<<"4. Buscar"<<endl;
+		cout<<"5. Eliminar Inicio"<<endl;
+		cout<<"6. Eliminar Medio"<<endl;
+		cout<<"7. Eliminar Fin"<<endl;
+		cout<<"8. Imprimir"<<endl;
 		cout<<"7. Salir"<<endl;
 		cin>>opc;
 		switch (opc){
@@ -29,8 +31,25 @@ int main(){
 				break;
 			case 2: 
 				system("cls") ;
+				do{
+					l->insertarInicio();
+					cout<<"Presione 0 para salir"<<endl;
+					cin>>dato;
+				}while(dato!=0);
 				break;
 			case 3: 
+				system("cls") ;
+				do{
+					l->insertarEntre();
+					cout<<"Presione 0 para salir"<<endl;
+					cin>>dato;
+				}while(dato!=0);
+				break;	
+			case 4: 
+				system("cls") ;
+				
+				break;		
+			case 5: 
 				system("cls") ;
 				cout << "Lista:" << endl;
 				l->mostrar();
@@ -39,10 +58,10 @@ int main(){
 				l->mostrar();
 				system("pause");
 				break;
-			case 4: 
+			case 6: 
 				system("cls") ;
 				break;
-			case 5: 
+			case 7: 
 				system("cls") ;
 				cout << "Lista:" << endl;
 				l->mostrar();
@@ -51,12 +70,12 @@ int main(){
 				l->mostrar();
 				system("pause");
 				break;
-			case 6: 
+			case 8: 
 				system("cls") ;
 				l->mostrar();
 				system("pause");
 				break;
-			case 7: 
+			case 0: 
 				system("cls") ;
 				cout<<"Gracias"<<endl;
 				system("pause");
